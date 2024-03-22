@@ -1,0 +1,121 @@
+<main>
+  <div class="main-contacts">
+    <img
+      class="img-contact-book"
+      src="../../../assets/icons/contact-book.svg"
+      alt="Libro de contactos"
+    />
+    <div class="contact-list">
+      <!-- <div class="contact-item">
+        <div class="contact-item__name">Juan Pérez</div>
+        <div class="contact-item__emal">juan@gmail.com</div>
+        <div class="contact-item__phone">123456789</div>
+        <div class="contact-item__address">Av. 123</div>
+        <div class="contact-item__company">Empresa 1</div>
+        <div class="contact-item__note">Nota 1</div>
+      </div> -->
+      <ul *ngFor="let contact of contacts; index as i">
+        <li>
+          <div class="contact-item">
+            <div class="contact-item__name">{{ contact.name }}</div>
+            <div class="contact-item__emal">{{ contact.email }}</div>
+            <div class="contact-item__phone">{{ contact.phone }}</div>
+            <div class="contact-item__address">{{ contact.address }}</div>
+            <div class="contact-item__company">{{ contact.company }}</div>
+            <div class="contact-item__note">{{ contact.note }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-form">
+    <span class="main-form__title">App Contactos</span>
+    <div class="main-form__form form">
+      <div class="form__title">
+        <div class="">Nuevo contacto</div>
+        <hr />
+      </div>
+      <div class="form__content">
+        <div class="input-group">
+          <div class="input-elem">
+            <label for="input-name"
+              >Nombres y apellidos<span class="input-red">
+                (obligatorio)</span
+              ></label
+            ><input
+              type="text"
+              name="input-name"
+              id="input-name"
+              [ngModel]="formFields.name"
+              (ngModelChange)="onNameChange($event)"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="input-elem">
+            <label for="input-email"
+              >Correo electrónico
+              <span class="input-red"> (obligatorio)</span></label
+            ><input
+              type="email"
+              name="input-email"
+              required
+              id="input-email"
+              [ngModel]="formFields.email"
+              (ngModelChange)="onEmailChange($event)"
+            />
+          </div>
+          <div class="input-elem">
+            <label for="input-phone"
+              >Teléfono <span class="input-red"> (obligatorio)</span></label
+            ><input
+              type="text"
+              name="input-phone"
+              required
+              id="input-phone"
+              [ngModel]="formFields.phone"
+              (ngModelChange)="onPhoneChange($event)"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="input-elem">
+            <label for="input-address">Dirección</label
+            ><input
+              type="text"
+              name="input-address"
+              id="input-address"
+              [ngModel]="formFields.address"
+              (ngModelChange)="onAddressChange($event)"
+            />
+          </div>
+          <div class="input-elem">
+            <label for="input-company">Empresa actual</label
+            ><input
+              type="text"
+              name="input-company"
+              id="input-company"
+              [ngModel]="formFields.company"
+              (ngModelChange)="onCompanyChange($event)"
+            />
+          </div>
+          <div class="input-elem">
+            <label for="input-note">Nota adicional</label
+            ><input
+              type="text"
+              name="input-note"
+              id="input-note"
+              [ngModel]="formFields.note"
+              (ngModelChange)="onNoteChange($event)"
+            />
+          </div>
+        </div>
+        <div class="submit-area">
+          <button class="btn-primary btn-submit" (click)="submit()">
+            Enviar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
