@@ -33,11 +33,11 @@ export class ContactService {
       Nota: dataInput.note,
     };
 
-    return this.http.post(`${this.url}/contacts`, data, httpOptions);
+    return this.http.post(`${this.url}/Home`, data, httpOptions);
   }
 
   getContacts() {
     // mock
-    return this.http.get(`${this.url}/contacts`);
+    return this.http.get(`${this.url}/Home`);
   }
 }
