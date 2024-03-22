@@ -8,9 +8,9 @@ export class ContactService {
   private readonly url: string;
 
   constructor(private readonly http: HttpClient) {
-    this.url = 'https://api.apispreadsheets.com/data/10487/';
+    this.url = 'https://localhost:7004';
   }
-
+  
   addContact(dataInput: {
     name: string;
     email: string;
@@ -24,7 +24,16 @@ export class ContactService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.post(`${this.url}/contacts`, dataInput, httpOptions);
+    const data = {
+      Nombre: dataInput.name,
+      Email: dataInput.email,
+      Telefono: dataInput.phone,
+      Direccion: dataInput.address,
+      Company: dataInput.company,
+      Nota: dataInput.note,
+    };
+
+    return this.http.post(`${this.url}/contacts`, data, httpOptions);
   }
 
   getContacts() {
